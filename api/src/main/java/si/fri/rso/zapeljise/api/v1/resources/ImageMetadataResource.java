@@ -1,4 +1,4 @@
-package si.fri.rso.samples.imagecatalog.api.v1.resources;
+package si.fri.rso.zapeljise.api.v1.resources;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
@@ -9,9 +9,8 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
-import si.fri.rso.samples.imagecatalog.lib.ImageMetadata;
-import si.fri.rso.samples.imagecatalog.services.beans.ImageMetadataBean;
-
+import si.fri.rso.zapeljise.msride.lib.ImageMetadata;
+import si.fri.rso.zapeljise.msride.services.beans.ImageMetadataBean;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -21,8 +20,6 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
 import java.util.logging.Logger;
-
-
 
 @ApplicationScoped
 @Path("/images")

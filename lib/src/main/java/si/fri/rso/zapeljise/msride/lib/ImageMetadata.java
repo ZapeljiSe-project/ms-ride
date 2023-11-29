@@ -1,4 +1,4 @@
-package si.fri.rso.samples.imagecatalog.lib;
+package si.fri.rso.zapeljise.msride.lib;
 
 import java.time.Instant;
 

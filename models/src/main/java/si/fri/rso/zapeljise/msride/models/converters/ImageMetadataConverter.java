@@ -1,7 +1,7 @@
-package si.fri.rso.samples.imagecatalog.models.converters;
+package si.fri.rso.zapeljise.msride.models.converters;
 
-import si.fri.rso.samples.imagecatalog.lib.ImageMetadata;
-import si.fri.rso.samples.imagecatalog.models.entities.ImageMetadataEntity;
+import si.fri.rso.zapeljise.msride.lib.ImageMetadata;
+import si.fri.rso.zapeljise.msride.models.entities.ImageMetadataEntity;
 
 public class ImageMetadataConverter {
 

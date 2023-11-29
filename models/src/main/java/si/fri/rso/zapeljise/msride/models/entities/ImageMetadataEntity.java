@@ -1,4 +1,4 @@
-package si.fri.rso.samples.imagecatalog.models.entities;
+package si.fri.rso.zapeljise.msride.models.entities;
 
 import javax.persistence.*;
 import java.time.Instant;
