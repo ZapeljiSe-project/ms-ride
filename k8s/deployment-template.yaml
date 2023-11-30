@@ -1,27 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: image-catalog-deployment
+  name: ms-ride-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: image-catalog
+      app: ms-ride
   template:
     metadata:
       labels:
-        app: image-catalog
+        app: ms-ride
     spec:
       containers:
-        - image: prporso/image-catalog:test #to be changed
-          name: image-catalog
+        - image: repo_iz_dockerhuba/ms-ride:test #to be changed
+          name: ms-ride
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
               value: #connection url
             - name: KUMULUZEE_DATASOURCES0_USERNAME
               value: #username
             - name: KUMULUZEE_DATASOURCES0_PASSWORD
-              value: #password
+              #value: #password
+              valueFrom: #use Kubernetes secret for storing the password
+                secretKeyRef:
+                  name: #to be added
+                  key: #to be added
           ports:
             - containerPort: 8080
               name: server
@@ -31,7 +35,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: image-catalog
+  name: ms-ride
 spec:
   type: LoadBalancer
   ports:
@@ -39,4 +43,4 @@ spec:
       protocol: TCP
       targetPort: server
   selector:
-    app: image-catalog
+    app: ms-ride
