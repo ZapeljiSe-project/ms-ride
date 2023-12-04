@@ -8,8 +8,7 @@ kumuluzee:
     http:
       port: 8080
   datasources:
-    - jndi-name: jdbc/ImageMetadataDS
-      connection-url: jdbc:postgresql://localhost:5432/image-metadata
-      username: dbuser
-      password: postgres
-
+    - jndi-name: jdbc/RideDataDS
+      connection-url: jdbc:postgresql://localhost:5432/msride
+      username: wvgniptg
+      password: pqJ1wX3BPdwlvTBWEEnSM2klLIbZufyx
