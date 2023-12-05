@@ -13,19 +13,18 @@ spec:
         app: ms-ride
     spec:
       containers:
-        - image: repo_iz_dockerhuba/ms-ride:test #to be changed
+        - image: gh6987/rso:ms-ride-2023-12-05 #to be changed
           name: ms-ride
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
-              value: #connection url
+              value: jdbc:postgresql://snuffleupagus.db.elephantsql.com:5432/wvgniptg
             - name: KUMULUZEE_DATASOURCES0_USERNAME
-              value: #username
+              value: wvgniptg
             - name: KUMULUZEE_DATASOURCES0_PASSWORD
-              #value: #password
               valueFrom: #use Kubernetes secret for storing the password
                 secretKeyRef:
-                  name: #to be added
-                  key: #to be added
+                  name: pg-pass
+                  key: password
           ports:
             - containerPort: 8080
               name: server
