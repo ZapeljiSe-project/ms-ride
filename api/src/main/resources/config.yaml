@@ -12,3 +12,14 @@ kumuluzee:
       connection-url: jdbc:postgresql://localhost:5432/msride
       username: wvgniptg
       password: pqJ1wX3BPdwlvTBWEEnSM2klLIbZufyx
+  health:
+    checks:
+      data-source-health-check:
+        type: liveness
+        jndi-name: jdbc/RideDataDS
+    metrics:
+      web-instrumentation:
+        - name: rides-endpoint
+          url-pattern: /v1/rides/*
+  rest-properties:
+    broken: false

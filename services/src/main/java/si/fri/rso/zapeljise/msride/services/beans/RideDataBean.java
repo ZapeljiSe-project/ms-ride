@@ -2,6 +2,7 @@ package si.fri.rso.zapeljise.msride.services.beans;
 
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import com.kumuluz.ee.rest.utils.JPAUtils;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 import si.fri.rso.zapeljise.msride.lib.RideData;
 import si.fri.rso.zapeljise.msride.models.converters.RideDataConverter;
 import si.fri.rso.zapeljise.msride.models.entities.RideDataEntity;
@@ -29,6 +30,7 @@ public class RideDataBean {
         return resultList.stream().map(RideDataConverter::toDto).collect(Collectors.toList());
     }
 
+    @Timed
     public List<RideData> getRideDataFilter(UriInfo uriInfo) {
         QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).defaultOffset(0)
                 .build();
