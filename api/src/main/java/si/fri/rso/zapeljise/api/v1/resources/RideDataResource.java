@@ -114,8 +114,7 @@ public class RideDataResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
-        return Response.status(Response.Status.NOT_MODIFIED).build();
-
+        return Response.status(Response.Status.OK).build();
     }
 
     @Operation(description = "Delete data for a ride.", summary = "Delete ride.")
