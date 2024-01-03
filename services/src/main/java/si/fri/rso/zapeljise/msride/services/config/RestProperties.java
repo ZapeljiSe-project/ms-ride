@@ -7,7 +7,7 @@ import com.kumuluz.ee.configuration.cdi.ConfigValue;
 @ConfigBundle("rest-properties")
 @ApplicationScoped
 public class RestProperties {
-    private Boolean broken = false;
+    private Boolean broken;
 
     public Boolean getBroken() {
         return broken;

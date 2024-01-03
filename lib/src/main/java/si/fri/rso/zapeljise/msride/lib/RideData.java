@@ -63,7 +63,7 @@ public class RideData {
         return toTown;
     }
 
-    public void setTo(String toTown) {
+    public void setToTown(String toTown) {
         this.toTown = toTown;
     }
 

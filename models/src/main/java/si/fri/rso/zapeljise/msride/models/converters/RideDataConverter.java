@@ -9,7 +9,7 @@ public class RideDataConverter {
         dto.setActive(entity.getActive());
         dto.setId(entity.getId());
         dto.setFromTown(entity.getFromTown());
-        dto.setTo(entity.getToTown());
+        dto.setToTown(entity.getToTown());
         dto.setDate(entity.getDate());
         dto.setTimeMinutes(entity.getTimeMinutes());
         dto.setTimeHours(entity.getTimeHours());
@@ -27,6 +27,7 @@ public class RideDataConverter {
     public static RideDataEntity toEntity(RideData dto) {
         RideDataEntity entity = new RideDataEntity();
         entity.setActive(dto.getActive());
+        entity.setId(dto.getId());
         entity.setFromTown(dto.getFromTown());
         entity.setToTown(dto.getToTown());
         entity.setDate(dto.getDate());

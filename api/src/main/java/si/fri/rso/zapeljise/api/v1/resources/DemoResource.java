@@ -1,5 +1,6 @@
 package si.fri.rso.zapeljise.api.v1.resources;
 
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import si.fri.rso.zapeljise.msride.services.config.RestProperties;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -15,6 +16,7 @@ import java.util.logging.Logger;
 @Path("/demo")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@Tag(name = "System health")
 public class DemoResource {
     private Logger log = Logger.getLogger(DemoResource.class.getName());
 
