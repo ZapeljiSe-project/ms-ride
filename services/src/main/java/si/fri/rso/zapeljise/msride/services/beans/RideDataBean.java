@@ -2,7 +2,8 @@ package si.fri.rso.zapeljise.msride.services.beans;
 
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import com.kumuluz.ee.rest.utils.JPAUtils;
-import org.eclipse.microprofile.metrics.annotation.Timed;
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.SimplyTimed;
 import si.fri.rso.zapeljise.msride.lib.RideData;
 import si.fri.rso.zapeljise.msride.models.converters.RideDataConverter;
 import si.fri.rso.zapeljise.msride.models.entities.RideDataEntity;
@@ -30,7 +31,7 @@ public class RideDataBean {
         return resultList.stream().map(RideDataConverter::toDto).collect(Collectors.toList());
     }
 
-    @Timed
+    @SimplyTimed(name = "getRideDataFilter_timed_method")
     public List<RideData> getRideDataFilter(UriInfo uriInfo) {
         QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).defaultOffset(0)
                 .build();
@@ -38,6 +39,7 @@ public class RideDataBean {
                 .map(RideDataConverter::toDto).collect(Collectors.toList());
     }
 
+    @Counted(name = "getRideData_invocation_counter", absolute = true)
     public RideData getRideData(Integer id) {
         RideDataEntity rideDataEntity = em.find(RideDataEntity.class, id);
 

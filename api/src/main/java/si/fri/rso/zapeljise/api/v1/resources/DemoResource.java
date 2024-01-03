@@ -29,4 +29,13 @@ public class DemoResource {
 
         return Response.status(Response.Status.OK).build();
     }
+
+    @POST
+    @Path("repair")
+    public Response makeHealty() {
+
+        restProperties.setBroken(false);
+
+        return Response.status(Response.Status.OK).build();
+    }
 }
