@@ -21,7 +21,7 @@ kumuluzee:
       - ms-ride-lib
   openapi-mp:
     ui:
-      specification-server: http://4.236.204.238:8080
+      specification-server: http://localhost:8080
   health:
     checks:
       data-source-health-check:

@@ -15,7 +15,7 @@ import javax.ws.rs.core.Application;
 @OpenAPIDefinition(info = @Info(title = "API for rides", version = "v1",
         contact = @Contact(email = "gh6987@student.uni-lj.si"),
         license = @License(name = "dev"), description = "API for managing rides."),
-        servers = @Server(url = "http://4.236.204.238:8080/"))
+        servers = @Server(url = "http://localhost:8080/"))
 @ApplicationPath("/v1")
 public class RideApplication extends Application {
     @Override
