@@ -13,7 +13,7 @@ spec:
         app: ms-ride
     spec:
       containers:
-        - image: gh6987/rso:ms-ride-2023-12-05-17-16-35 #to be changed
+        - image: gh6987/rso:ms-ride-2024-01-04-23-32-54 #to be changed
           name: ms-ride
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
@@ -48,7 +48,7 @@ kind: Service
 metadata:
   name: ms-ride
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
     - port: 8080
       protocol: TCP
