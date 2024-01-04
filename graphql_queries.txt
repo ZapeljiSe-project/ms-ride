@@ -1,0 +1,65 @@
+query allRideData {
+   allRideData(pagination: {offset: 0, limit: 10},
+    						sort: {fields: [{field: "price", order: ASC}]}) {
+    result {
+    	id
+    	price
+    	fromTown
+    	toTown
+    }
+    pagination {
+      offset
+      limit
+      total
+    }
+  }
+}
+
+query getRideData {
+	rideData(id:1){
+        id
+        price
+        car
+        insurance
+  }
+}
+
+mutation addRideData {
+  addRideData(rideData: {
+                        active: true,
+                        car: "Renault Megane",
+                        date: "2023-12-19T23:00:00Z",
+                        driver: "Testni Janez",
+                        fromTown: "Ljubljana-Brezovica",
+                        insurance: true,
+                        notes: "Direktno po avtocesti, tankam na počivališču Lukovica.",
+                        phone: "040505404",
+                        pick: true,
+                        price: 10,
+                        space: 2,
+                        timeHours: 11,
+                        timeMinutes: 30,
+                        toTown: "Slovenj Gradec"
+                        }){
+    active
+    car
+    date
+    driver
+    fromTown
+    insurance
+    notes
+    phone
+    pick
+    price
+    space
+    timeHours
+    timeMinutes
+    toTown
+  }
+}
+
+mutation deleteRideData{
+  deleteRideData(id: 5){
+    deleted
+  }
+}

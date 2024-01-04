@@ -94,6 +94,7 @@ mvn clean package...
 **Local URL's:**
 - Backend API available at: http://localhost:8080/v1/rides
 - Swagger OpenAPI: http://localhost:8080/api-specs/ui
+- GraphQL UI: http://localhost:8080/graphiql
 - Health Check (liveness): http://localhost:8080/health/live
 - Health Check (readiness): http://localhost:8080/health/ready
 - POST call to demonstrate unhealthy service: http://localhost:8080/v1/demo/break
@@ -112,3 +113,33 @@ mvn clean package...
 ```
 
 -----
+**Deploy:**
+
+Run commands from 'connect' tab on Azure:
+
+```bash
+az login
+az account set --subscription 54abde38-43ac-4774-bbb8-becd29f7593d
+az aks get-credentials --resource-group rso-projekt --name kubernetesClusterRso
+```
+
+Run other commands:
+
+```bash
+kubectl create -f deployment-template.yaml
+kubectl apply -f deployment-template.yaml
+```
+
+```bash
+kubectl get nodes
+kubectl get services 
+kubectl get deployments
+kubectl get pods
+```
+
+```bash
+kubectl delete node ...
+kubectl delete service ...
+kubectl delete deployment ...
+kubectl delete pod ...
+```

@@ -5,6 +5,10 @@ import org.eclipse.microprofile.openapi.annotations.info.Contact;
 import org.eclipse.microprofile.openapi.annotations.info.Info;
 import org.eclipse.microprofile.openapi.annotations.info.License;
 import org.eclipse.microprofile.openapi.annotations.servers.Server;
+import si.fri.rso.zapeljise.api.v1.resources.RideDataResource;
+
+import java.util.HashSet;
+import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
@@ -14,5 +18,13 @@ import javax.ws.rs.core.Application;
         servers = @Server(url = "http://4.236.204.238:8080/"))
 @ApplicationPath("/v1")
 public class RideApplication extends Application {
-
+    @Override
+    public Set<Class<?>> getClasses() {
+        Set<Class<?>> classes = new HashSet<>();
+        // Add your JAX-RS resource classes
+        classes.add(RideDataResource.class);
+        // Add the CorsFilter class
+        classes.add(CorsFilter.class);
+        return classes;
+    }
 }
