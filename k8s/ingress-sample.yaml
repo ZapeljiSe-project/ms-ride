@@ -19,6 +19,13 @@ spec:
                 name: ms-ride
                 port:
                   number: 8080
+          - path: /(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: ms-ride
+                port:
+                  number: 8080
 #          - path: /comments(/|$)(.*)
 #            pathType: ImplementationSpecific
 #            backend:
