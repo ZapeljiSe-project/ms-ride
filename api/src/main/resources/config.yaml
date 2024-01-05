@@ -1,7 +1,4 @@
 kumuluzee:
-  cors-filter:
-    servlet:
-      allow-origin: "*"
   name: ms-ride-service
   env:
     name: dev

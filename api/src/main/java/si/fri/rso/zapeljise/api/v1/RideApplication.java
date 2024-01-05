@@ -1,5 +1,6 @@
 package si.fri.rso.zapeljise.api.v1;
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.info.Contact;
 import org.eclipse.microprofile.openapi.annotations.info.Info;
@@ -17,6 +18,7 @@ import javax.ws.rs.core.Application;
         license = @License(name = "dev"), description = "API for managing rides."),
         servers = @Server(url = "http://20.253.101.2/ms-ride"))
 @ApplicationPath("/v1")
+@CrossOrigin(allowOrigin="*", supportedMethods = "GET, POST, PUT, HEAD, OPTIONS, DELETE")
 public class RideApplication extends Application {
     @Override
     public Set<Class<?>> getClasses() {
