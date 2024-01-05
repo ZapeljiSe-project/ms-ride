@@ -1,4 +1,7 @@
 kumuluzee:
+  cors-filter:
+    servlet:
+      allow-origin: "*"
   name: ms-ride-service
   env:
     name: dev
@@ -21,9 +24,7 @@ kumuluzee:
       - ms-ride-lib
   openapi-mp:
     ui:
-      server-auto-config:
-        enabled: true
-        original-uri-check: false
+      specification-server: http://4.236.250.26/ms-ride
   health:
     checks:
       data-source-health-check:
