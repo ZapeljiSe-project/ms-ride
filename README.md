@@ -123,7 +123,7 @@ az account set --subscription 54abde38-43ac-4774-bbb8-becd29f7593d
 az aks get-credentials --resource-group rso-projekt --name kubernetesClusterRso
 ```
 
-Run other commands:
+Run other commands (add namespace --> **-n ingress-nginx**):
 
 ```bash
 kubectl create -f deployment-template.yaml

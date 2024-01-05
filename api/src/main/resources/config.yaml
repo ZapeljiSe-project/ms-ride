@@ -21,12 +21,7 @@ kumuluzee:
       - ms-ride-lib
   openapi-mp:
     ui:
-      server-auto-config:
-        enabled: true
-        original-uri-check: false
-#  openapi-mp:
-#    ui:
-#      specification-server: http://localhost:8080
+      specification-server: http://4.236.250.26/
   health:
     checks:
       data-source-health-check:
