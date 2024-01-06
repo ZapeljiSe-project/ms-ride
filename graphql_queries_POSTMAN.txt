@@ -1,0 +1,34 @@
+-------------------------------------------------------------------------------------------------------
+QUERY 1  - GET price, car, insurance for Ride with id = 1.
+-------------------------------------------------------------------------------------------------------
+{
+    "query":"query getRideData { \n \t rideData(id:1) { \n id \n price \n car \n insurance \n } \n }",
+    "operationName":"getRideData"
+}
+
+
+-------------------------------------------------------------------------------------------------------
+QUERY 2  - GET id, price, fromTown, toTown for all Rides. Order by price ASC, limit to 10.
+-------------------------------------------------------------------------------------------------------
+{
+    "query": "query allRideData { \n allRideData( \n pagination: {offset: 0, limit: 10} \n sort: {fields: [{field: \"price\", order: ASC}]}\n  ) {\n    result {\n      id\n      price\n      fromTown\n      toTown\n    }\n    pagination {\n      offset\n      limit\n      total\n    }\n  }\n}\n",
+    "operationName": "allRideData"
+}
+
+
+-------------------------------------------------------------------------------------------------------
+QUERY 3 - POST new Ride.
+-------------------------------------------------------------------------------------------------------
+{
+    "query": "mutation addRideData {\n  addRideData(\n    rideData: {active: true, car: \"Renault Megane\", date: \"2023-12-19T23:00:00Z\", driver: \"Testni Janez\", fromTown: \"Ljubljana-Brezovica\", insurance: true, notes: \"Direktno po avtocesti, tankam na počivališču Lukovica.\", phone: \"040505404\", pick: true, price: 10, space: 2, timeHours: 11, timeMinutes: 30, toTown: \"Slovenj Gradec\"}\n  ) {\n    active\n    car\n    date\n    driver\n    fromTown\n    insurance\n    notes\n    phone\n    pick\n    price\n    space\n    timeHours\n    timeMinutes\n    toTown\n  }\n}\n",
+    "operationName": "addRideData"
+}
+
+
+-------------------------------------------------------------------------------------------------------
+QUERY 4 - DELETE a Ride with id = 5.
+-------------------------------------------------------------------------------------------------------
+{
+    "query": "mutation deleteRideData { \n deleteRideData(id: 5) { \n deleted \n  } \n }",
+    "operationName": "deleteRideData"
+}
