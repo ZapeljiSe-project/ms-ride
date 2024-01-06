@@ -8,6 +8,8 @@ import org.eclipse.microprofile.openapi.annotations.info.License;
 import org.eclipse.microprofile.openapi.annotations.servers.Server;
 import si.fri.rso.zapeljise.api.v1.resources.DemoResource;
 import si.fri.rso.zapeljise.api.v1.resources.RideDataResource;
+import si.fri.rso.zapeljise.api.v1.resources.TownResource;
+
 import java.util.HashSet;
 import java.util.Set;
 import javax.ws.rs.ApplicationPath;
@@ -26,6 +28,7 @@ public class RideApplication extends Application {
         // Add your JAX-RS resource classes
         classes.add(RideDataResource.class);
         classes.add(DemoResource.class);
+        classes.add(TownResource.class);
         // Add the CorsFilter class
         classes.add(CorsFilter.class);
         return classes;

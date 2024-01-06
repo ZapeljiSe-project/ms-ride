@@ -53,3 +53,5 @@ kumuluzee:
                               </Configuration>'
 rest-properties:
   broken: false
+town-api:
+  url: https://teaching.lavbic.net/api/kraji/vsi
