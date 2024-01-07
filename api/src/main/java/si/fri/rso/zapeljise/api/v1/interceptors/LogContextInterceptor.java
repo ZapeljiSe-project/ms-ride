@@ -9,15 +9,25 @@ import javax.annotation.Priority;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.HttpHeaders;
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.logging.Logger;
 
 @Log
 @Interceptor
 @Priority(Interceptor.Priority.PLATFORM_BEFORE)
 public class LogContextInterceptor {
+
+    @Context
+    private HttpHeaders httpHeaders;
+
+    private Logger log = Logger.getLogger(LogContextInterceptor.class.getName());
+
     @AroundInvoke
     public Object logMethodEntryAndExit(InvocationContext context) throws Exception {
+
         ConfigurationUtil configurationUtil = ConfigurationUtil.getInstance();
 
         HashMap settings = new HashMap();
@@ -27,7 +37,19 @@ public class LogContextInterceptor {
         settings.put("applicationVersion", EeConfig.getInstance().getVersion());
         settings.put("uniqueInstanceId", EeRuntime.getInstance().getInstanceId());
 
-        settings.put("uniqueRequestId", UUID.randomUUID().toString());
+        // Tet correlation ID from header.
+        String correlationId = httpHeaders.getHeaderString("correlationId");
+
+        // If not present or empty, make random.
+        if (correlationId == null || correlationId.isEmpty()) {
+            correlationId = UUID.randomUUID().toString();
+            log.info("Creating new correlation Id: " + correlationId);
+        }
+        else {
+            log.info("Using correlation Id from header: " + correlationId);
+        }
+
+        settings.put("uniqueRequestId", correlationId);
 
         try (final CloseableThreadContext.Instance ctc = CloseableThreadContext.putAll(settings)) {
             Object result = context.proceed();

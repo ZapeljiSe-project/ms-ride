@@ -44,9 +44,11 @@ public class RideDataBean {
         RideDataEntity rideDataEntity = em.find(RideDataEntity.class, id);
 
         if (rideDataEntity == null) {
+            log.warning("Ride data with given ID not found.");
             throw new NotFoundException();
         }
 
+        log.info("Successfully retrieved ride data.");
         RideData rideData = RideDataConverter.toDto(rideDataEntity);
         return rideData;
     }
@@ -60,13 +62,16 @@ public class RideDataBean {
             commitTx();
         }
         catch (Exception e) {
+            log.warning("Exception occured.");
             rollbackTx();
         }
 
         if (rideDataEntity.getId() == null) {
+            log.warning("Exception occured - Runtime exception: Entity was not persisted.");
             throw new RuntimeException("Entity was not persisted.");
         }
 
+        log.info("Successfully created new ride.");
         return RideDataConverter.toDto(rideDataEntity);
     }
 
@@ -74,6 +79,7 @@ public class RideDataBean {
         RideDataEntity c = em.find(RideDataEntity.class, id);
 
         if (c == null) {
+            log.info("Data for the chosen ride did not update.");
             return null;
         }
 
@@ -86,9 +92,11 @@ public class RideDataBean {
             commitTx();
         }
         catch (Exception e) {
+            log.warning("Exception occured.");
             rollbackTx();
         }
 
+        log.info("Successfully updated a ride.");
         return RideDataConverter.toDto(updatedRideDataEntity);
     }
 
@@ -102,13 +110,16 @@ public class RideDataBean {
                 commitTx();
             }
             catch (Exception e) {
+                log.warning("Exception occured.");
                 rollbackTx();
             }
         }
         else {
+            log.info("Chosen ride did not delete.");
             return false;
         }
 
+        log.info("Successfully deleted a ride.");
         return true;
     }
 
