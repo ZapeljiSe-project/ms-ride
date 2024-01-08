@@ -70,6 +70,7 @@ public class RideDataResource {
         RideData rideData = rideDataBean.getRideData(rideDataId);
 
         if (rideData == null) {
+            log.log(Level.WARNING, "Exit 'GET rides/id' endpoint - Ride not found.");
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
@@ -93,12 +94,13 @@ public class RideDataResource {
 
         if ((rideData.getFromTown() == null || rideData.getToTown() == null || rideData.getDate() == null ||
                 rideData.getTimeMinutes() == null || rideData.getTimeHours() == null || rideData.getPhone() == null)) {
+            log.log(Level.WARNING, "Exit 'POST ride' endpoint - BAD REQUEST.");
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
 
-        log.log(Level.INFO, "Exit 'POST ride' endpoint.");
-
         rideData = rideDataBean.createRideData(rideData);
+
+        log.log(Level.INFO, "Exit 'POST ride' endpoint.");
         return Response.status(Response.Status.OK).entity(rideData).build();
     }
 
