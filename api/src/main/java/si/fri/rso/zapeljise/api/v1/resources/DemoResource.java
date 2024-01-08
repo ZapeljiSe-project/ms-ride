@@ -1,5 +1,6 @@
 package si.fri.rso.zapeljise.api.v1.resources;
 
+import com.kumuluz.ee.logs.cdi.Log;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import si.fri.rso.zapeljise.msride.services.config.RestProperties;
 import javax.enterprise.context.ApplicationScoped;
@@ -12,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.logging.Logger;
 
+@Log
 @ApplicationScoped
 @Path("/demo")
 @Consumes(MediaType.APPLICATION_JSON)

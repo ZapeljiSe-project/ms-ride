@@ -125,6 +125,15 @@ mvn clean package...
 ```
 
 -----
+**Logs (queries):**
+
+https://kibana.logit.io/s/af96aeac-0250-4f55-bb51-627ab4111040/app/discoverLegacy#/
+
+- How many times **GET .../v1/town** has been called: <br> contextMap.method: getTowns AND (marker.name: ENTRY OR marker.name: EXIT)
+- Check all info logs for this microservice. Notice also the same **uniqueRequestId**: <br> contextMap.applicationName:ms-ride-service AND level:INFO <br> Later, add also: <br> AND contextMap.uniqueRequestId: <\id here>
+- Check all warning logs for this microservice (e.g. for method **GET .../v1/rides/<\id which doesn't exist>**): <br> contextMap.applicationName:ms-ride-service AND level:WARN 
+
+-----
 **Deploy:**
 
 Run commands from 'connect' tab on Azure:

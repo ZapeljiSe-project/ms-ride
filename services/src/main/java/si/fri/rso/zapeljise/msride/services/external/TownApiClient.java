@@ -13,6 +13,7 @@ import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @RequestScoped
@@ -30,6 +31,8 @@ public class TownApiClient {
     }
 
     public List<Town> getTowns() {
+        log.log(Level.INFO, "Starting to retrieve data from external API...");
+
         Response response = httpClient
                 .target(baseUrl)
                 .request(MediaType.APPLICATION_JSON)
@@ -50,6 +53,9 @@ public class TownApiClient {
         }
 
         towns.sort(Comparator.comparing(t -> t.getName().charAt(0)));
+
+        log.log(Level.INFO, "Finished collecting data from external API.");
+        log.log(Level.INFO, "Number of retrieved results: " + towns.size());
 
         return towns;
     }

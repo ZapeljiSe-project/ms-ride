@@ -1,5 +1,6 @@
 package si.fri.rso.zapeljise.api.v1.resources;
 
+import com.kumuluz.ee.logs.cdi.Log;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.headers.Header;
@@ -16,15 +17,17 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
+@Log
 @ApplicationScoped
 @Path("/town")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Tag(name = "Town")
 public class TownResource {
-    private Logger log = Logger.getLogger(DemoResource.class.getName());
+    private Logger log = Logger.getLogger(TownResource.class.getName());
 
     @Inject
     private TownBean townDataBean;
@@ -38,7 +41,12 @@ public class TownResource {
             )})
     @GET
     public Response getTowns() {
+        log.log(Level.INFO, "Entering GET towns method...");
+
         List<Town> towns = townDataBean.getTowns();
+
+        log.log(Level.INFO, "Exit GET towns method.");
+
         return Response.status(Response.Status.OK).entity(towns).build();
     }
 }
