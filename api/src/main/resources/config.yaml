@@ -9,7 +9,7 @@ kumuluzee:
       port: 8080
   datasources:
     - jndi-name: jdbc/RideDataDS
-      connection-url: jdbc:postgresql://localhost:5432/msride
+      connection-url: jdbc:postgresql://localhost:5434/msride
       username: wvgniptg
       password: pqJ1wX3BPdwlvTBWEEnSM2klLIbZufyx
       pool:

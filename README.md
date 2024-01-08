@@ -3,9 +3,9 @@
 ## Prerequisites
 
 ```bash
-docker run -d --name pg-image-metadata -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=image-metadata -p 5432:5432 postgres:13
+docker run -d --name pg-image-metadata -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=image-metadata -p 5434:5432 postgres:13
 
-docker run -d --name pg-ride -e POSTGRES_USER=wvgniptg -e POSTGRES_PASSWORD=pqJ1wX3BPdwlvTBWEEnSM2klLIbZufyx -e POSTGRES_DB=msride -p 5432:5432 
+docker run -d --name pg-ride -e POSTGRES_USER=wvgniptg -e POSTGRES_PASSWORD=pqJ1wX3BPdwlvTBWEEnSM2klLIbZufyx -e POSTGRES_DB=msride -p 5434:5432 
 postgres:13
 ```
 
@@ -29,7 +29,7 @@ docker push prporso/novaslika
 docker network ls  
 docker network rm rso
 docker network create rso
-docker run -d --name pg-image-metadata -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=image-metadata -p 5432:5432 --network rso postgres:13
+docker run -d --name pg-image-metadata -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=image-metadata -p 5434:5432 --network rso postgres:13
 docker inspect pg-image-metadata
 docker run -p 8080:8080 --network rso -e KUMULUZEE_DATASOURCES0_CONNECTIONURL=jdbc:postgresql://pg-image-metadata:5432/image-metadata prporso/ms-ride:2022-11-14-12-45-13
 ```
@@ -60,12 +60,12 @@ kubectl describe secret pg-pass
 ## Other notes
 **Basic commands:**
 ```bash
-docker run -d --name pg-ride -e POSTGRES_USER=wvgniptg -e POSTGRES_PASSWORD=pqJ1wX3BPdwlvTBWEEnSM2klLIbZufyx -e POSTGRES_DB=msride -p 5432:5432 
+docker run -d --name pg-ride -e POSTGRES_USER=wvgniptg -e POSTGRES_PASSWORD=pqJ1wX3BPdwlvTBWEEnSM2klLIbZufyx -e POSTGRES_DB=msride -p 5434:5432
 postgres:13
 
 docker build -t gh6987/rso:msride .  ((tale 'msride' je iz config.yaml))
 docker push gh6987/rso:msride
-docker run -d --name pg-ride -e POSTGRES_USER=dbuser_Diagnoses7782 -e POSTGRES_PASSWORD=T3Bo32fu7yW#Gj^%r!%^ -e POSTGRES_DB=msride -p 5432:5432 postgres:13
+docker run -d --name pg-ride -e POSTGRES_USER=dbuser_Diagnoses7782 -e POSTGRES_PASSWORD=T3Bo32fu7yW#Gj^%r!%^ -e POSTGRES_DB=msride -p 5434:5432 postgres:13
 mvn clean package...
 ```
 
