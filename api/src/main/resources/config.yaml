@@ -13,7 +13,7 @@ kumuluzee:
       username: wvgniptg
       password: pqJ1wX3BPdwlvTBWEEnSM2klLIbZufyx
       pool:
-        max-size: 4
+        max-size: 3
   dev:
     scan-libraries:
       - ms-ride-models
