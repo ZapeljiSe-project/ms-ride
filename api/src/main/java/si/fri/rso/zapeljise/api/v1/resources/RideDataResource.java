@@ -21,6 +21,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Log
@@ -47,10 +48,10 @@ public class RideDataResource {
             )})
     @GET
     public Response getRideData() {
-        log.info("Entering 'GET rides' endpoint...");
+        log.log(Level.INFO, "Entering 'GET rides' endpoint...");
         List<RideData> rideData = rideDataBean.getRideDataFilter(uriInfo);
 
-        log.info("Exit 'GET rides' endpoint.");
+        log.log(Level.INFO, "Exit 'GET rides' endpoint.");
         return Response.status(Response.Status.OK).entity(rideData).build();
     }
 
@@ -65,14 +66,14 @@ public class RideDataResource {
     @Path("/{rideDataId}")
     public Response getRideData(@Parameter(description = "Ride data ID.", required = true)
                                      @PathParam("rideDataId") Integer rideDataId) {
-        log.info("Entering 'GET rides/id' endpoint...");
+        log.log(Level.INFO, "Entering 'GET rides/id' endpoint...");
         RideData rideData = rideDataBean.getRideData(rideDataId);
 
         if (rideData == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
-        log.info("Exit 'GET rides/id' endpoint.");
+        log.log(Level.INFO, "Exit 'GET rides/id' endpoint.");
         return Response.status(Response.Status.OK).entity(rideData).build();
     }
 
@@ -88,14 +89,14 @@ public class RideDataResource {
             description = "DTO object with ride data.",
             required = true, content = @Content(
             schema = @Schema(implementation = RideData.class))) RideData rideData) {
-        log.info("Entering 'POST ride' endpoint...");
+        log.log(Level.INFO, "Entering 'POST ride' endpoint...");
 
         if ((rideData.getFromTown() == null || rideData.getToTown() == null || rideData.getDate() == null ||
                 rideData.getTimeMinutes() == null || rideData.getTimeHours() == null || rideData.getPhone() == null)) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
 
-        log.info("Exit 'POST ride' endpoint.");
+        log.log(Level.INFO, "Exit 'POST ride' endpoint.");
 
         rideData = rideDataBean.createRideData(rideData);
         return Response.status(Response.Status.OK).entity(rideData).build();
@@ -117,11 +118,11 @@ public class RideDataResource {
                                              required = true, content = @Content(
                                              schema = @Schema(implementation = RideData.class)))
                                              RideData rideData){
-        log.info("Entering 'PUT ride/id' endpoint...");
+        log.log(Level.INFO, "Entering 'PUT ride/id' endpoint...");
 
         rideData = rideDataBean.putRideData(rideDataId, rideData);
 
-        log.info("Exit 'PUT ride/id' endpoint.");
+        log.log(Level.INFO, "Exit 'PUT ride/id' endpoint.");
 
         if (rideData == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
@@ -145,11 +146,11 @@ public class RideDataResource {
     @Path("{rideDataId}")
     public Response deleteRideData(@Parameter(description = "Ride ID.", required = true)
                                         @PathParam("rideDataId") Integer rideDataId){
-        log.info("Entering 'DELETE ride/id' endpoint...");
+        log.log(Level.INFO, "Entering 'DELETE ride/id' endpoint...");
 
         boolean deleted = rideDataBean.deleteRideData(rideDataId);
 
-        log.info("Exit 'DELETE ride/id' endpoint.");
+        log.log(Level.INFO, "Exit 'DELETE ride/id' endpoint.");
 
         if (deleted) {
             return Response.status(Response.Status.NO_CONTENT).build();

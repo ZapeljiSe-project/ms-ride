@@ -13,6 +13,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Log
@@ -37,16 +38,16 @@ public class LogContextInterceptor {
         settings.put("applicationVersion", EeConfig.getInstance().getVersion());
         settings.put("uniqueInstanceId", EeRuntime.getInstance().getInstanceId());
 
-        // Tet correlation ID from header.
+        // Try to get correlation ID from header.
         String correlationId = httpHeaders.getHeaderString("correlationId");
 
         // If not present or empty, make random.
         if (correlationId == null || correlationId.isEmpty()) {
             correlationId = UUID.randomUUID().toString();
-            log.info("Creating new correlation Id: " + correlationId);
+            log.log(Level.INFO, "Creating new correlation Id: " + correlationId);
         }
         else {
-            log.info("Using correlation Id from header: " + correlationId);
+            log.log(Level.INFO, "Using correlation Id from header: " + correlationId);
         }
 
         settings.put("uniqueRequestId", correlationId);
