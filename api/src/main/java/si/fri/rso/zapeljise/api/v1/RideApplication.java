@@ -9,7 +9,6 @@ import org.eclipse.microprofile.openapi.annotations.servers.Server;
 import si.fri.rso.zapeljise.api.v1.resources.DemoResource;
 import si.fri.rso.zapeljise.api.v1.resources.RideDataResource;
 import si.fri.rso.zapeljise.api.v1.resources.TownResource;
-
 import java.util.HashSet;
 import java.util.Set;
 import javax.ws.rs.ApplicationPath;
