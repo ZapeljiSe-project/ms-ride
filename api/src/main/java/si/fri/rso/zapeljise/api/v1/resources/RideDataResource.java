@@ -153,7 +153,7 @@ public class RideDataResource {
         log.log(Level.INFO, "Exit 'DELETE ride/id' endpoint.");
 
         if (deleted) {
-            return Response.status(Response.Status.NO_CONTENT).build();
+            return Response.status(Response.Status.OK).build();
         }
         else {
             return Response.status(Response.Status.NOT_FOUND).build();
