@@ -20,7 +20,7 @@ QUERY 2  - GET id, price, fromTown, toTown for all Rides. Order by price ASC, li
 QUERY 3 - POST new Ride.
 -------------------------------------------------------------------------------------------------------
 {
-    "query": "mutation addRideData {\n  addRideData(\n    rideData: {active: true, car: \"Renault Megane\", date: \"2023-12-19T23:00:00Z\", driver: \"Testni Janez\", fromTown: \"Ljubljana-Brezovica\", insurance: true, notes: \"Direktno po avtocesti, tankam na počivališču Lukovica.\", phone: \"040505404\", pick: true, price: 10, space: 2, timeHours: 11, timeMinutes: 30, toTown: \"Slovenj Gradec\"}\n  ) {\n    active\n    car\n    date\n    driver\n    fromTown\n    insurance\n    notes\n    phone\n    pick\n    price\n    space\n    timeHours\n    timeMinutes\n    toTown\n  }\n}\n",
+    "query": "mutation addRideData {\n  addRideData(\n    rideData: {active: true, car: \"Renault Megane\", date: \"2023-12-19T23:00:00Z\", driver: \"Testni Janez\", fromTown: \"Ljubljana-Brezovica\", insurance: true, notes: \"Direktno po avtocesti, tankam na počivališču Lukovica.\", phone: \"040505404\", pick: true, price: 10, space: 2, timeHours: 11, timeMinutes: 30, toTown: \"Slovenj Gradec\", userId: 1}\n  ) {\n    active\n    car\n    date\n    driver\n    fromTown\n    insurance\n    notes\n    phone\n    pick\n    price\n    space\n    timeHours\n    timeMinutes\n    toTown\n    userId\n  }\n}\n",
     "operationName": "addRideData"
 }
 

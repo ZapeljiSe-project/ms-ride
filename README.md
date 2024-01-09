@@ -86,7 +86,8 @@ mvn clean package...
 "space": 2,
 "timeHours": 11,
 "timeMinutes": 30,
-"toTown": "Slovenj Gradec"
+"toTown": "Slovenj Gradec",
+"userId": 1
 }
 ```
 

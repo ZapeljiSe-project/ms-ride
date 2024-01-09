@@ -21,6 +21,7 @@ public class RideDataConverter {
         dto.setInsurance(entity.getInsurance());
         dto.setPhone(entity.getPhone());
         dto.setPick(entity.getPick());
+        dto.setUserId(entity.getUserId());
         return dto;
     }
 
@@ -41,6 +42,7 @@ public class RideDataConverter {
         entity.setInsurance(dto.getInsurance());
         entity.setPhone(dto.getPhone());
         entity.setPick(dto.getPick());
+        entity.setUserId(dto.getUserId());
         return entity;
     }
 }

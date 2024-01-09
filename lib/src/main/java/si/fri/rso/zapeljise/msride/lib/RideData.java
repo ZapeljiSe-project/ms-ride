@@ -33,6 +33,8 @@ public class RideData {
 
     private Boolean pick;
 
+    private Integer userId;
+
     // Getters and setters.
 
     public Boolean getActive() {
@@ -153,5 +155,13 @@ public class RideData {
 
     public void setPick(Boolean pick) {
         this.pick = pick;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }
