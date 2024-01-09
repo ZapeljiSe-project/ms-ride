@@ -106,7 +106,7 @@ mvn clean package...
 -----
 **Production URL's:**
 - Backend API available at: http://52.188.141.107/ms-ride/v1/rides
-- Swagger OpenAPI: http://20.253.101.2/ms-ride/api-specs/ui/?url=http://52.188.141.107/ms-ride/openapi&oauth2RedirectUrl=http://52.188.141.107/ms-ride/api-specs/ui/oauth2-redirect.html
+- Swagger OpenAPI: http://52.188.141.107/ms-ride/api-specs/ui/?url=http://52.188.141.107/ms-ride/openapi&oauth2RedirectUrl=http://52.188.141.107/ms-ride/api-specs/ui/oauth2-redirect.html
 - Health Check (liveness): http://52.188.141.107/ms-ride/health/live
 - Health Check (readiness): http://52.188.141.107/ms-ride/health/ready
 - POST call to demonstrate unhealthy service: http://52.188.141.107/ms-ride/v1/demo/break
