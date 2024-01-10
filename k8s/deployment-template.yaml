@@ -24,7 +24,7 @@ spec:
             - name: KUMULUZEE_DATASOURCES0_PASSWORD
               valueFrom: #use Kubernetes secret for storing the password
                 secretKeyRef:
-                  name: pg-pass
+                  name: pg-pass-ride
                   key: password
           ports:
             - containerPort: 8080

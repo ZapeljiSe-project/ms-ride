@@ -51,9 +51,9 @@ kubectl delete pod ms-ride-deployment-6f59c5d96c-rjz46
 Kubernetes secrets configuration: https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/
 
 ```bash
-kubectl create secret generic pg-pass --from-literal=password=mypassword
+kubectl create secret generic pg-pass-ride --from-literal=password=mypassword
 kubectl get secrets
-kubectl describe secret pg-pass
+kubectl describe secret pg-pass-ride
 ```
 
 -----
@@ -105,14 +105,14 @@ mvn clean package...
 
 -----
 **Production URL's:**
-- Backend API available at: http://52.188.141.107/ms-ride/v1/rides
-- Swagger OpenAPI: http://52.188.141.107/ms-ride/api-specs/ui/?url=http://52.188.141.107/ms-ride/openapi&oauth2RedirectUrl=http://52.188.141.107/ms-ride/api-specs/ui/oauth2-redirect.html
-- Health Check (liveness): http://52.188.141.107/ms-ride/health/live
-- Health Check (readiness): http://52.188.141.107/ms-ride/health/ready
-- POST call to demonstrate unhealthy service: http://52.188.141.107/ms-ride/v1/demo/break
-- POST call to demonstrate healthy service: http://52.188.141.107/ms-ride/v1/demo/repair
-- Metrics: http://52.188.141.107/ms-ride/metrics/
-- POST call to GraphQL: http://52.188.141.107/ms-ride/graphql
+- Backend API available at: http://52.255.222.173/ms-ride/v1/rides
+- Swagger OpenAPI: http://52.255.222.173/ms-ride/api-specs/ui/?url=http://52.255.222.173/ms-ride/openapi&oauth2RedirectUrl=http://52.255.222.173/ms-ride/api-specs/ui/oauth2-redirect.html
+- Health Check (liveness): http://52.255.222.173/ms-ride/health/live
+- Health Check (readiness): http://52.255.222.173/ms-ride/health/ready
+- POST call to demonstrate unhealthy service: http://52.255.222.173/ms-ride/v1/demo/break
+- POST call to demonstrate healthy service: http://52.255.222.173/ms-ride/v1/demo/repair
+- Metrics: http://52.255.222.173/ms-ride/metrics/
+- POST call to GraphQL: http://52.255.222.173/ms-ride/graphql
 
 -----
 **Metrics** (.../services/.../RideDataBean.java):

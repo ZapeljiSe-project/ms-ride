@@ -17,7 +17,7 @@ import javax.ws.rs.core.Application;
 @OpenAPIDefinition(info = @Info(title = "API for rides", version = "v1",
         contact = @Contact(email = "gh6987@student.uni-lj.si"),
         license = @License(name = "dev"), description = "API for managing rides."),
-        servers = @Server(url = "http://52.188.141.107/ms-ride"))
+        servers = @Server(url = "http://52.255.222.173/ms-ride"))
 @ApplicationPath("/v1")
 @CrossOrigin(allowOrigin="*", supportedMethods = "GET, POST, PUT, HEAD, OPTIONS, DELETE")
 public class RideApplication extends Application {
