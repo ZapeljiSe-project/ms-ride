@@ -14,13 +14,13 @@ spec:
         app: ms-ride
     spec:
       containers:
-        - image: gh6987/rso:ms-ride-2024-01-04-23-47-05 #to be changed
+        - image: gh6987/rso:ms-ride-2024-01-09-01-33-18 #to be changed
           name: ms-ride
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
-              value: jdbc:postgresql://snuffleupagus.db.elephantsql.com:5432/wvgniptg
+              value: jdbc:postgresql://tyke.db.elephantsql.com:5432/bnzmfvvp
             - name: KUMULUZEE_DATASOURCES0_USERNAME
-              value: wvgniptg
+              value: bnzmfvvp
             - name: KUMULUZEE_DATASOURCES0_PASSWORD
               valueFrom: #use Kubernetes secret for storing the password
                 secretKeyRef:

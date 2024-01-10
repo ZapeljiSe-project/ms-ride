@@ -5,7 +5,7 @@
 ```bash
 docker run -d --name pg-image-metadata -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=image-metadata -p 5434:5432 postgres:13
 
-docker run -d --name pg-ride -e POSTGRES_USER=wvgniptg -e POSTGRES_PASSWORD=pqJ1wX3BPdwlvTBWEEnSM2klLIbZufyx -e POSTGRES_DB=msride -p 5434:5432 
+docker run -d --name pg-ride -e POSTGRES_USER=bnzmfvvp -e POSTGRES_PASSWORD=cri3lNhJF3rZ_RE5kxf-iTJ0djvryhF9 -e POSTGRES_DB=msride -p 5434:5432 
 postgres:13
 ```
 
@@ -60,7 +60,7 @@ kubectl describe secret pg-pass
 ## Other notes
 **Basic commands:**
 ```bash
-docker run -d --name pg-ride -e POSTGRES_USER=wvgniptg -e POSTGRES_PASSWORD=pqJ1wX3BPdwlvTBWEEnSM2klLIbZufyx -e POSTGRES_DB=msride -p 5434:5432
+docker run -d --name pg-ride -e POSTGRES_USER=bnzmfvvp -e POSTGRES_PASSWORD=cri3lNhJF3rZ_RE5kxf-iTJ0djvryhF9 -e POSTGRES_DB=msride -p 5434:5432
 postgres:13
 
 docker build -t gh6987/rso:msride .  ((tale 'msride' je iz config.yaml))
