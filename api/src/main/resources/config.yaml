@@ -27,6 +27,9 @@ kumuluzee:
       data-source-health-check:
         type: liveness
         jndi-name: jdbc/RideDataDS
+      disk-space-health-check:
+        threshold: 100000000
+        type: liveness
     metrics:
       web-instrumentation:
         - name: rides-endpoint
